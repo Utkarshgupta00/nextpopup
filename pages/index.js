@@ -1,5 +1,7 @@
 // pages/index.js
+import { useState } from 'react';
 import UserSelector from '../components/UserSelector';
+import Calendar from '../components/Calender.js'; // Import the Calendar component
 
 const users = [
   { id: 1, name: 'John Doe' },
@@ -14,8 +16,18 @@ const users = [
 ];
 
 const HomePage = () => {
+  const [isCalendarVisible, setCalendarVisible] = useState(false); // Add state for calendar visibility
+
   const handleUserSelect = (selectedUsers) => {
     console.log('Selected Users:', selectedUsers);
+  };
+
+  const handleCalendarClick = () => {
+    setCalendarVisible(true);
+  };
+
+  const handleCloseCalendar = () => {
+    setCalendarVisible(false);
   };
 
   return (
@@ -24,6 +36,14 @@ const HomePage = () => {
         <h1 className="text-3xl font-bold mb-4 text-center">User Selector Example</h1>
         <UserSelector users={users} onSelect={handleUserSelect} />
       </div>
+     
+        <button
+          onClick={handleCalendarClick}
+          className="mt-10 px-4 mb-10 py-2 bg-blue-500 text-white rounded-md"
+        >
+          Calendar
+        </button>
+      {isCalendarVisible && <Calendar onClose={handleCloseCalendar} />}
     </div>
   );
 };
