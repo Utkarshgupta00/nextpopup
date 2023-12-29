@@ -96,13 +96,13 @@ const renderCalendar = () => {
     <div className="w-full h-full p-4 bg-white">
       <div className="flex mb-14">
         <div className="cursor-pointer" onClick={handlePrevMonth}>
-          <span className="text-black">&#8249;</span>
+          <span className="text-black m-10 text-2xl ">&#8249;</span>
         </div>
         <div className="flex items-center">
           <select
             value={displayedMonth}
             onChange={handleMonthChange}
-            className="text-black border-none p-2 mr-2"
+            className="text-black border-none bg-g p-2 mr-2 "
           >
             {Array.from({ length: 12 }, (_, i) => (
               <option key={i} value={i}>
@@ -125,7 +125,7 @@ const renderCalendar = () => {
           </select>
         </div>
         <div className="cursor-pointer" onClick={handleNextMonth}>
-          <span className="text-black">&#8250;</span>
+          <span className="text-black ml-10 text-2xl">&#8250;</span>
         </div>
       </div>
       {renderCalendar()}
